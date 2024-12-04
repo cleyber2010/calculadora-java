@@ -17,7 +17,7 @@ public class Main {
             0 -> Sair
          */
         int action = 1;
-        int result;
+        int result = 0;
         char operation;
         ArrayList<String> history = new ArrayList<String>();
         Scanner scanner = new Scanner(System.in);
@@ -26,7 +26,7 @@ public class Main {
 
             if (action == 1) {
                 System.out.println("====== Calculadora ======");
-                System.out.print("Informe a operação: ( + ) adição ( - ) subtração ( * ) multiplicação ( / ) divisão ");
+                System.out.print("Informe a operação: ( + ) adição ( - ) subtração ( * ) multiplicação ( / ) divisão: ");
                 operation = scanner.next().charAt(0);
                 System.out.print("Informe o primeiro valor: ");
                 int number1 = scanner.nextInt();
@@ -51,11 +51,13 @@ public class Main {
                         break;
                 }
 
+                System.out.printf("O resultado da operação é %d \n", result);
+
                 String historyAdd = String.format("%d %c %d", number1, operation, number2);
                 history.add(historyAdd);
             } else if (action == 2) {
                 System.out.println("====== Histórico de operações realizadas ======");
-                System.out.printf("Você realizou %d operações", history.size());
+                System.out.printf("Você realizou %d operações \n", history.size());
                 history.forEach(System.out::println);
             }
 

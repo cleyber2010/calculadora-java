@@ -19,6 +19,7 @@ public class Main {
         int action = 1;
         int result = 0;
         char operation;
+        boolean validOperation = true;
         ArrayList<String> history = new ArrayList<String>();
         Scanner scanner = new Scanner(System.in);
 
@@ -48,13 +49,18 @@ public class Main {
                         break;
                     default:
                         System.out.println("A operação informada não é válida");
+                        validOperation = false;
                         break;
                 }
 
-                System.out.printf("O resultado da operação é %d \n", result);
+                if (validOperation) {
 
-                String historyAdd = String.format("%d %c %d", number1, operation, number2);
-                history.add(historyAdd);
+                    System.out.printf("O resultado da operação é %d \n", result);
+
+                    String historyAdd = String.format("%d %c %d", number1, operation, number2);
+                    history.add(historyAdd);
+                }
+
             } else if (action == 2) {
                 System.out.println("====== Histórico de operações realizadas ======");
                 System.out.printf("Você realizou %d operações \n", history.size());
